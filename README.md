@@ -1,4 +1,4 @@
-# Simple To Do List
+# Simple To Do List - Vue JS
 
 Feature :
 - Add new task
