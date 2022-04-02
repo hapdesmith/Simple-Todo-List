@@ -1,14 +1,14 @@
 <template>
-  <div class="flex flex-col w-full font-sans text-stone-600">
-    <h1 class="text-xl font-bold mb-4">Simple Todo List</h1>
-    <div class="flex flex-row mb-4">
-      <label for="newTask" class="mr-2 text-lg font-medium">New Task Name :</label>
+  <div class="flex flex-col w-full font-sans text-stone-600 px-4 py-4">
+    <h1 class="text-xl font-bold text-center mb-4">Simple Todo List</h1>
+    <div class="flex flex-col mb-4">
       <input 
+        placeholder="NEW TASK"
         type="text" 
         id="newTask" 
         v-model="newTask"
-        class="mr-2 border-2 rounded focus:border-sky-600 hover:border-sky-600 transition ease-in-out duration-300"/> 
-      <button class="bg-sky-600 hover:bg-sky-800 py-1 px-3 transition ease-in-out duration-300 text-stone-100 rounded text-sm font-medium" @click="addNewTask">ADD TASK</button>
+        class="mb-2 p-2 border-2 rounded focus:border-sky-600 hover:border-sky-600 transition ease-in-out duration-300"/> 
+      <button class="bg-sky-600 hover:bg-sky-800 p-2 transition ease-in-out duration-300 text-stone-100 rounded text-sm font-medium" @click="addNewTask">ADD TASK</button>
     </div>
     <div>
       <h2 class="text-lg font-medium mb-4">Current Tasks :</h2>
