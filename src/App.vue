@@ -1,29 +1,36 @@
 <template>
-  <div>
-    <h1>Simple Todo List</h1>
-    <label for="newTask">New Task Name</label> : 
-    <input 
-      type="text" 
-      id="newTask" 
-      v-model="newTask"/> 
-    <button @click="addNewTask">Add Task</button>
-    <h2>Current Tasks :</h2>
-    <checklist v-if="!!taskList.length" 
-      v-for="task in taskList" 
-      :key="task" 
-      :title="task" 
-      @onComplete="completeTask" 
-      @onNotComplete="unCompleteTask"
-      @onEdit="confirmEditTask"
-      @onDelete="deleteTask"/>
-    <p v-else>task masih kosong</p>
-    <h2>Completed Tasks :</h2>
-    <ul v-if="!!completedTask.length">
-      <li v-for="task in completedTask" :key="task">
-        {{ task }}
-      </li>
-    </ul>
-    <p v-else>completed task masih kosong</p>
+  <div class="flex flex-col w-full font-sans text-stone-600">
+    <h1 class="text-xl font-bold mb-4">Simple Todo List</h1>
+    <div class="flex flex-row mb-4">
+      <label for="newTask" class="mr-2 text-lg font-medium">New Task Name :</label>
+      <input 
+        type="text" 
+        id="newTask" 
+        v-model="newTask"
+        class="mr-2 border-2 rounded focus:border-sky-600 hover:border-sky-600 transition ease-in-out duration-300"/> 
+      <button class="bg-sky-600 hover:bg-sky-800 py-1 px-3 transition ease-in-out duration-300 text-stone-100 rounded text-sm font-medium" @click="addNewTask">ADD TASK</button>
+    </div>
+    <div>
+      <h2 class="text-lg font-medium mb-4">Current Tasks :</h2>
+      <checklist v-if="!!taskList.length" 
+        v-for="task in taskList" 
+        :key="task" 
+        :title="task" 
+        @onComplete="completeTask" 
+        @onNotComplete="unCompleteTask"
+        @onEdit="confirmEditTask"
+        @onDelete="deleteTask"/>
+      <p v-else>task masih kosong</p>
+    </div>
+    <div>
+      <h2 class="text-lg font-medium mb-4">Completed Tasks :</h2>
+      <ul v-if="!!completedTask.length" class="flex flex-row">
+        <li class="mr-2 mb-2 px-3 py-2 border-2 rounded bg-emerald-400 text-stone-100" v-for="task in completedTask" :key="task">
+          {{ task }}
+        </li>
+      </ul>
+      <p v-else>completed task masih kosong</p>
+    </div>
   </div>
   
 </template>
@@ -80,8 +87,5 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
